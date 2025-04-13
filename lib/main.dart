@@ -37,7 +37,9 @@ class MyHomePage extends StatelessWidget {
 
     return Scaffold(
       body: Column(
-        children: [NavigationBarApp()],
+        children: [
+          Expanded(child: NavigationBarApp())
+        ],
       ),
     );
   }
