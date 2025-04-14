@@ -1,3 +1,4 @@
+import 'package:App/widgets/contacts_list.dart';
 import 'package:App/widgets/home_page.dart';
 import 'package:App/widgets/messages_page.dart';
 import 'package:App/widgets/notifications_page.dart';
@@ -8,10 +9,7 @@ class NavigationBarApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(useMaterial3: true),
-      home: const NavigationExemple(),
-    );
+    return const NavigationExemple();
   }
 }
 
@@ -27,7 +25,7 @@ class _NavigationExempleState extends State<NavigationExemple> {
   final List<Widget> _pages = const [
     HomePage(),
     NotificationsPage(),
-    MessagesPage()
+    ContactsList()
   ];
 
   @override
@@ -40,6 +38,8 @@ class _NavigationExempleState extends State<NavigationExemple> {
           });
         },
         indicatorColor: Colors.amber,
+        backgroundColor: Colors.white,
+        elevation: 2,
         selectedIndex: currentPageIndex,
         destinations: const <Widget>[
           NavigationDestination(
@@ -56,7 +56,6 @@ class _NavigationExempleState extends State<NavigationExemple> {
         ],
       ),
       body: _pages[currentPageIndex],
-      );
-    
+    );
   }
 }

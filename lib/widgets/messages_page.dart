@@ -4,12 +4,12 @@ class MessagesPage extends StatelessWidget {
   const MessagesPage({super.key});
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return ListView.builder(
       reverse: true,
       itemCount: 2,
-      itemBuilder: (BuildContext context, int index){
+      itemBuilder: (BuildContext context, int index) {
         final isMe = index == 0;
         return Align(
           alignment: isMe ? Alignment.centerRight : Alignment.centerLeft,
@@ -17,15 +17,14 @@ class MessagesPage extends StatelessWidget {
             margin: const EdgeInsets.all(8.0),
             padding: const EdgeInsets.all(8.0),
             decoration: BoxDecoration(
-              color: theme.colorScheme.primary,
-              borderRadius: BorderRadius.circular(8.0)
+                color: theme.colorScheme.primary,
+                borderRadius: BorderRadius.circular(8.0)),
+            child: Text(
+              isMe ? 'I am fine, thank you!' : 'Hello, how are you?',
+              style: theme.textTheme.bodyLarge?.copyWith(
+                color: Colors.white,
+              ),
             ),
-          child: Text(
-            isMe ? 'Hello, how are you?' : 'I am fine, thank you!',
-            style: theme.textTheme.bodyLarge?.copyWith(
-              color: Colors.white,
-            ),
-          ),
           ),
         );
       },

@@ -1,9 +1,15 @@
+import 'package:App/widgets/HeaderApp.dart';
 import 'package:App/widgets/NavigationBarApp.dart';
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    systemNavigationBarColor: Colors.transparent,
+    systemNavigationBarIconBrightness: Brightness.light,
+  ));
   runApp(MyApp());
 }
 
@@ -18,9 +24,10 @@ class MyApp extends StatelessWidget {
         title: 'Namer App',
         theme: ThemeData(
           useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         ),
         home: MyHomePage(),
+        debugShowCheckedModeBanner: false,
       ),
     );
   }
@@ -34,12 +41,16 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
+    final statusBarHeight = MediaQuery.of(context).padding.top;
 
     return Scaffold(
-      body: Column(
-        children: [
-          Expanded(child: NavigationBarApp()) 
-        ],
+      body: Padding(
+        padding: EdgeInsets.only(
+          top: statusBarHeight,
+        ),
+        child: Column(
+          children: [HeaderApp(), Expanded(child: NavigationBarApp())],
+        ),
       ),
     );
   }
