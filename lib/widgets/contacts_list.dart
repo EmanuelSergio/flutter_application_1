@@ -1,4 +1,4 @@
-import 'package:App/widgets/messages_page.dart';
+import 'package:App/widgets/custom/custom_contact_notification.dart';
 import 'package:flutter/material.dart';
 
 class ContactsList extends StatelessWidget {
@@ -8,29 +8,11 @@ class ContactsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: <Widget>[
-        ListTile(
-          leading: CircleAvatar(
-            child: Text('A'),
-          ),
-          title: Text("Amanda"),
-          subtitle: Text("hello babe"),
-          trailing: Stack(
-            alignment: Alignment.center,
-            children: [
-              Icon(Icons.circle, color: Colors.green),
-              Text(
-                "2",
-                style: TextStyle(fontSize: 12, color: Colors.white),
-              )
-            ],
-          ),
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const MessagesPage(),
-                ));
-          },
+        CustomContactNotification(
+          name: "name",
+          messages: 2,
+          lastMessage: "astMessage",
+          imageUrl: null,
         ),
         Divider(
           height: 0,

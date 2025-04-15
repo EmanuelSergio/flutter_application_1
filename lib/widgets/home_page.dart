@@ -1,4 +1,6 @@
-import 'package:App/widgets/custom_card.dart';
+import 'package:App/food_card.dart';
+import 'package:App/widgets/custom/custom_card.dart';
+import 'package:App/widgets/custom/custom_searchBar.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -12,17 +14,10 @@ class HomePage extends StatelessWidget {
       margin: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
       child: SizedBox.expand(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(
-              "Home Page",
-              style: theme.textTheme.titleLarge,
-            ),
-            const SizedBox(height: 16.0),
-            CustomCard(
-                title: "title",
-                subtitle: "subtitle",
-                icon: Icons.account_balance_sharp)
+            CustomSearchbar(),
           ],
         ),
       ),

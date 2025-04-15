@@ -1,6 +1,5 @@
 import 'package:App/widgets/contacts_list.dart';
 import 'package:App/widgets/home_page.dart';
-import 'package:App/widgets/messages_page.dart';
 import 'package:App/widgets/notifications_page.dart';
 import 'package:flutter/material.dart';
 
@@ -37,20 +36,35 @@ class _NavigationExempleState extends State<NavigationExemple> {
             currentPageIndex = index;
           });
         },
-        indicatorColor: Colors.amber,
+        indicatorColor: Color(0xFFFF0000).withOpacity(0.1),
         backgroundColor: Colors.white,
         elevation: 2,
         selectedIndex: currentPageIndex,
         destinations: const <Widget>[
           NavigationDestination(
-              selectedIcon: Icon(Icons.home),
-              icon: Icon(Icons.home_outlined),
-              label: 'Home'),
+            icon: Icon(
+              Icons.home,
+              color: Color(0xFFD61355),
+            ),
+            label: 'Home',
+          ),
           NavigationDestination(
-              icon: Badge(child: Icon(Icons.notifications_sharp)),
+              icon: Icon(
+                Icons.person,
+                color: Color(0xFFD61355),
+              ),
+              label: 'Perfil'),
+          NavigationDestination(
+              icon: Badge(
+                  child: Icon(
+                Icons.shopping_cart,
+                color: Color(0xFFD61355),
+              )),
               label: 'Notifications'),
           NavigationDestination(
-            icon: Badge(label: (Text('2')), child: Icon(Icons.messenger_sharp)),
+            icon: Badge(
+                label: (Text('2')),
+                child: Icon(Icons.messenger_sharp, color: Color(0xFFD61355))),
             label: 'Messages',
           )
         ],

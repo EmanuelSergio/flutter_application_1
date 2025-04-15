@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         title: 'Namer App',
         theme: ThemeData(
           useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
+          colorScheme: ColorScheme.light(primary: Color(0x00000000)),
         ),
         home: MyHomePage(),
         debugShowCheckedModeBanner: false,
@@ -40,7 +40,6 @@ class MyAppState extends ChangeNotifier {
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
     final statusBarHeight = MediaQuery.of(context).padding.top;
 
     return Scaffold(
