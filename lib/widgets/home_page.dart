@@ -1,4 +1,5 @@
 import 'package:App/food_card.dart';
+import 'package:App/widgets/custom/custom_burguer_Card.dart';
 import 'package:App/widgets/custom/custom_card.dart';
 import 'package:App/widgets/custom/custom_searchBar.dart';
 import 'package:flutter/material.dart';
@@ -14,11 +15,10 @@ class HomePage extends StatelessWidget {
       margin: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
       child: SizedBox.expand(
         child: Column(
+          spacing: 30,
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            CustomSearchbar(),
-          ],
+          children: [CustomSearchbar(), CustomBurguerCard()],
         ),
       ),
     );
