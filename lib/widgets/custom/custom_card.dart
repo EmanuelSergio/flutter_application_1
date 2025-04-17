@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CustomCard extends StatelessWidget{
+class CustomCard extends StatelessWidget {
   final String title;
   final String subtitle;
   final IconData icon;
@@ -13,7 +13,7 @@ class CustomCard extends StatelessWidget{
   });
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Card(
       child: ListTile(
         leading: Icon(icon),

@@ -11,18 +11,16 @@ class CustomBurguerCard extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
           color: Colors.redAccent, borderRadius: BorderRadius.circular(10)),
-      padding: EdgeInsets.all(0),
       child: Row(
-        // mainAxisAlignment: MainAxisAlignment.,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
             flex: 2,
             child: Padding(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.all(15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'Special Offer for March',
@@ -46,7 +44,7 @@ class CustomBurguerCard extends StatelessWidget {
                       // Handle button press
                     },
                     style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.fromLTRB(20, 2, 20, 5),
+                      padding: const EdgeInsets.fromLTRB(20, 2, 20, 5),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(3),
                       ),

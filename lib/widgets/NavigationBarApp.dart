@@ -1,3 +1,4 @@
+import 'package:App/widgets/MealMenu.dart';
 import 'package:App/widgets/contacts_list.dart';
 import 'package:App/widgets/home_page.dart';
 import 'package:App/widgets/notifications_page.dart';
@@ -24,7 +25,8 @@ class _NavigationExempleState extends State<NavigationExemple> {
   final List<Widget> _pages = const [
     HomePage(),
     NotificationsPage(),
-    ContactsList()
+    MealMenu(),
+    ContactsList(),
   ];
 
   @override

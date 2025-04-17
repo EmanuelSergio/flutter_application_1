@@ -7,7 +7,7 @@ class CustomSearchbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 10),
-      width: 10,
+      width: double.infinity,
       child: TextField(
         obscureText: false,
         style: const TextStyle(

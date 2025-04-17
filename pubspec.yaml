@@ -24,4 +24,5 @@ dev_dependencies:
 flutter:
   assets:
     - assets/images/burguer.png
+    - assets/images/card.png
   uses-material-design: true
