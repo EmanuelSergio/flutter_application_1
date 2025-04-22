@@ -3,15 +3,20 @@ import 'package:flutter/material.dart';
 class CustomListCard extends StatelessWidget {
   final String title;
   final IconData icon;
+  final bool isSelected;
 
-  const CustomListCard({super.key, required this.title, required this.icon});
+  const CustomListCard(
+      {super.key,
+      required this.title,
+      required this.icon,
+      this.isSelected = false});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
         width: 160,
         child: Card(
-          color: Colors.redAccent,
+          color: isSelected ? Colors.redAccent : Colors.white,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -21,7 +26,7 @@ class CustomListCard extends StatelessWidget {
                 child: Icon(
                   icon,
                   size: 30,
-                  color: Colors.white,
+                  color: isSelected ? Colors.white : Colors.black,
                 ),
               ),
               Padding(
@@ -31,7 +36,7 @@ class CustomListCard extends StatelessWidget {
                   style: Theme.of(context).textTheme.headlineLarge?.copyWith(
                         fontSize: 20,
                         fontWeight: FontWeight.w600,
-                        color: Colors.white,
+                        color: isSelected ? Colors.white : Colors.black,
                       ),
                 ),
               ),

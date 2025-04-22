@@ -5,7 +5,8 @@ class CustomCarousel extends StatefulWidget {
   final double width;
   final double height;
   final bool navigationDots;
-  final bool showMultipleItems; // NOVO!
+  final bool showMultipleItems;
+  final double gap; // Novo parâmetro
 
   CustomCarousel({
     Key? key,
@@ -13,7 +14,8 @@ class CustomCarousel extends StatefulWidget {
     this.width = 150,
     this.height = 150,
     this.navigationDots = true,
-    this.showMultipleItems = false, // default: falso (modo carousel)
+    this.showMultipleItems = false,
+    this.gap = 0, // Valor padrão
   }) : super(key: key);
 
   @override
@@ -35,13 +37,18 @@ class _CustomCarouselState extends State<CustomCarousel> {
               ? SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: widget.cards
-                        .map((card) => Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 8.0),
-                              child: card,
-                            ))
-                        .toList(),
+                    children: List.generate(
+                      widget.cards.length,
+                      (index) => Padding(
+                        padding: EdgeInsets.only(
+                          left: index == 0 ? 0 : widget.gap / 2,
+                          right: index == widget.cards.length - 1
+                              ? 0
+                              : widget.gap / 2,
+                        ),
+                        child: widget.cards[index],
+                      ),
+                    ),
                   ),
                 )
               : PageView.builder(
@@ -53,7 +60,15 @@ class _CustomCarouselState extends State<CustomCarousel> {
                     });
                   },
                   itemBuilder: (context, index) {
-                    return widget.cards[index];
+                    return Padding(
+                      padding: EdgeInsets.only(
+                        left: index == 0 ? 0 : widget.gap / 2,
+                        right: index == widget.cards.length - 1
+                            ? 0
+                            : widget.gap / 2,
+                      ),
+                      child: widget.cards[index],
+                    );
                   },
                 ),
         ),

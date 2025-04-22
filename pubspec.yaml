@@ -25,4 +25,6 @@ flutter:
   assets:
     - assets/images/burguer.png
     - assets/images/card.png
+    - assets/images/burguer2.png
+
   uses-material-design: true
