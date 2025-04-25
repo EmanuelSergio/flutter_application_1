@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
           colorScheme: ColorScheme.light(primary: Color(0x00000000)),
         ),
-        home: MyHomePage(),
+        home: MainLayout(),
         debugShowCheckedModeBanner: false,
       ),
     );
@@ -37,7 +37,7 @@ class MyAppState extends ChangeNotifier {
   var current = WordPair.random();
 }
 
-class MyHomePage extends StatelessWidget {
+class MainLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final statusBarHeight = MediaQuery.of(context).padding.top;
