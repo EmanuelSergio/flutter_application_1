@@ -1,4 +1,3 @@
-import 'package:App/food_card.dart';
 import 'package:App/widgets/custom/custom_burguer_Card.dart';
 import 'package:App/widgets/custom/custom_card.dart';
 import 'package:App/widgets/custom/custom_carousel.dart';

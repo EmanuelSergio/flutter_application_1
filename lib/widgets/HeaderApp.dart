@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class HeaderApp extends StatelessWidget {
-  const HeaderApp({super.key});
+  final VoidCallback onMenuPressed;
+  const HeaderApp({super.key, required this.onMenuPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -13,10 +14,13 @@ class HeaderApp extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Icon(
-            Icons.menu,
-            color: Colors.black,
-            size: 35,
+          GestureDetector(
+            onTap: onMenuPressed,
+            child: Icon(
+              Icons.menu,
+              color: Colors.black,
+              size: 35,
+            ),
           ),
           Row(
             children: [
@@ -30,14 +34,14 @@ class HeaderApp extends StatelessWidget {
               ),
             ],
           ),
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.3),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Icon(
-              Icons.person,
-              size: 35,
+          GestureDetector(
+            onTap: () {
+              // Add your onTap logic here
+            },
+            child: CircleAvatar(
+              radius: 15, // Adjust the radius as needed
+              backgroundImage: NetworkImage(
+                  "https://img2.lovecell.com.br/8e19bd91f085fec00e54e7613ce3bccae6765ddc390da7efbb24af99c8a65910.webp"), // Replace with your image path
             ),
           ),
         ],

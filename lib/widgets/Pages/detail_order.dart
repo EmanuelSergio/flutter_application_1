@@ -1,3 +1,4 @@
+import 'package:App/widgets/Pages/food_detail_order.dart';
 import 'package:flutter/material.dart';
 
 class DetailOrder extends StatelessWidget {
@@ -140,7 +141,11 @@ class DetailOrder extends StatelessWidget {
                       width: MediaQuery.of(context).size.width,
                       height: 60,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                  builder: (_) => FoodDetailOrder()));
+                        },
                         style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.fromLTRB(20, 2, 20, 5),
                           shape: RoundedRectangleBorder(

@@ -28,5 +28,6 @@ flutter:
     - assets/images/burguer2.png
     - assets/images/pizza.png
     - assets/images/burgerDetail.png
+    - assets/images/splash.png
 
   uses-material-design: true
