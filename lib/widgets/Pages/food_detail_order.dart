@@ -1,4 +1,5 @@
 import 'package:App/widgets/custom/custom_card_mealMenu.dart';
+import 'package:App/widgets/custom/custom_total_account.dart';
 import 'package:flutter/material.dart';
 
 class FoodDetailOrder extends StatelessWidget {
@@ -8,20 +9,25 @@ class FoodDetailOrder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: const EdgeInsets.symmetric(vertical: 60, horizontal: 30),
+        margin: const EdgeInsets.symmetric(vertical: 60, horizontal: 13),
         child: Column(
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                      color: Colors.redAccent.withOpacity(0.2),
-                      borderRadius: BorderRadius.circular(7)),
-                  child: Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.redAccent,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        color: Colors.redAccent.withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(7)),
+                    child: Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.redAccent,
+                    ),
                   ),
                 )
               ],
@@ -38,7 +44,10 @@ class FoodDetailOrder extends StatelessWidget {
                 )
               ],
             ),
-            CustomCardMealmenu()
+            CustomCardMealmenu(),
+            CustomCardMealmenu(),
+            CustomCardMealmenu(),
+            CustomTotalAccount()
           ],
         ),
       ),
