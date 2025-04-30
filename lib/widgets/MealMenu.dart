@@ -1,3 +1,4 @@
+import 'package:App/main.dart';
 import 'package:flutter/material.dart';
 
 class MealMenu extends StatelessWidget {
@@ -19,7 +20,10 @@ class MealMenu extends StatelessWidget {
           child: IconButton(
             icon: const Icon(Icons.arrow_back_ios_new,
                 color: Colors.red, size: 18),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (_) => MainLayout()));
+            },
           ),
         ),
         actions: [

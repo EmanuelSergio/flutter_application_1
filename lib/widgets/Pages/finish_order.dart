@@ -1,6 +1,4 @@
 import 'package:App/main.dart';
-import 'package:App/widgets/NavigationBarApp.dart';
-import 'package:App/widgets/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_pannable_rating_bar/flutter_pannable_rating_bar.dart';
 

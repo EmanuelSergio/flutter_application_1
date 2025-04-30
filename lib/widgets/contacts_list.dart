@@ -1,4 +1,4 @@
-import 'package:App/widgets/custom/custom_contact_notification.dart';
+import 'package:App/widgets/Pages/chat.dart';
 import 'package:flutter/material.dart';
 
 class ContactsList extends StatelessWidget {
@@ -6,37 +6,23 @@ class ContactsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: <Widget>[
-        CustomContactNotification(
-          name: "name",
-          messages: 2,
-          lastMessage: "astMessage",
-          imageUrl: null,
-        ),
-        Divider(
-          height: 0,
-        ),
+    return Column(
+      children: [
         ListTile(
-          leading: CircleAvatar(
-            child: Text('A'),
+          leading: const CircleAvatar(
+            backgroundImage: NetworkImage(
+                'https://gourmetjr.com.br/wp-content/uploads/2018/03/JPEG-image-B6230B799E47-1_1170x600_acf_cropped_490x292_acf_cropped.jpeg'),
           ),
-          title: Text("Amanda"),
-          subtitle: Text("hello babe"),
-          trailing: Stack(
-            alignment: Alignment.center,
-            children: [
-              Icon(Icons.circle, color: Colors.green),
-              Text(
-                "2",
-                style: TextStyle(fontSize: 12, color: Colors.white),
-              )
-            ],
+          title: const Text('John Doe'),
+          subtitle: const Text("pedido a camino"),
+          trailing: const Icon(Icons.circle, color: Colors.green, size: 12),
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Chat(),
+            ),
           ),
         ),
-        Divider(
-          height: 0,
-        )
       ],
     );
   }

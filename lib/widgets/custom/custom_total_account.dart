@@ -1,5 +1,4 @@
 import 'package:App/widgets/Pages/finish_order.dart';
-import 'package:App/widgets/Pages/food_detail_order.dart';
 import 'package:flutter/material.dart';
 
 class CustomTotalAccount extends StatelessWidget {

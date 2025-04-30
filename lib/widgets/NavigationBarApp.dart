@@ -1,8 +1,6 @@
-import 'package:App/widgets/MealMenu.dart';
 import 'package:App/widgets/Pages/profile.dart';
 import 'package:App/widgets/contacts_list.dart';
 import 'package:App/widgets/home_page.dart';
-import 'package:App/widgets/notifications_page.dart';
 import 'package:flutter/material.dart';
 
 class NavigationBarApp extends StatelessWidget {
@@ -23,10 +21,9 @@ class NavigationExemple extends StatefulWidget {
 class _NavigationExempleState extends State<NavigationExemple> {
   int currentPageIndex = 0;
 
-  final List<Widget> _pages = const [
+  final List<Widget> _pages = [
     HomePage(),
     Profile(),
-    MealMenu(),
     ContactsList(),
   ];
 
@@ -57,13 +54,6 @@ class _NavigationExempleState extends State<NavigationExemple> {
                 color: Color(0xFFD61355),
               ),
               label: 'Perfil'),
-          NavigationDestination(
-              icon: Badge(
-                  child: Icon(
-                Icons.shopping_cart,
-                color: Color(0xFFD61355),
-              )),
-              label: 'Notifications'),
           NavigationDestination(
             icon: Badge(
                 label: (Text('2')),

@@ -3,6 +3,25 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomFoodCard extends StatelessWidget {
+  final String title;
+  final String description;
+  final String imagePath;
+  final double rating;
+  final double price;
+  // final double priceCents;
+  final VoidCallback? onAddPressed;
+
+  const CustomFoodCard({
+    Key? key,
+    required this.title,
+    required this.description,
+    required this.imagePath,
+    required this.rating,
+    required this.price,
+    //required this.priceCents,
+    this.onAddPressed,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -39,7 +58,7 @@ class CustomFoodCard extends StatelessWidget {
                         color: CupertinoColors.systemYellow,
                       ),
                       Text(
-                        '3.8',
+                        rating.toString(),
                         style:
                             Theme.of(context).textTheme.headlineLarge?.copyWith(
                                   fontSize: 15,
@@ -51,8 +70,8 @@ class CustomFoodCard extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(
-                        'assets/images/burguer2.png',
+                      Image.network(
+                        imagePath,
                         width: 87,
                         height: 70,
                       ),
@@ -63,14 +82,16 @@ class CustomFoodCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Chicken burger',
+                        title,
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
                             ),
                       ),
                       Text(
-                        '100 gr chicken + tomato + cheese  Lettuce',
+                        description.length > 45
+                            ? '${description.substring(0, 40)}...'
+                            : description,
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
                             color: Colors.black38,
                             fontWeight: FontWeight.w900,
@@ -83,7 +104,7 @@ class CustomFoodCard extends StatelessWidget {
                     children: [
                       RichText(
                         text: TextSpan(
-                          text: "\$20.",
+                          text: "\$${price.toStringAsFixed(0)}.",
                           style: Theme.of(context)
                               .textTheme
                               .bodySmall
@@ -93,7 +114,7 @@ class CustomFoodCard extends StatelessWidget {
                                   color: Colors.redAccent),
                           children: [
                             TextSpan(
-                              text: "50",
+                              text: "99",
                               style: Theme.of(context)
                                   .textTheme
                                   .bodySmall
@@ -106,10 +127,12 @@ class CustomFoodCard extends StatelessWidget {
                         ),
                       ),
                       IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.add_circle_outlined),
-                        color: Colors.redAccent,
-                        iconSize: 30,
+                        onPressed: onAddPressed,
+                        icon: Icon(
+                          Icons.add_circle_outlined,
+                          color: Colors.redAccent,
+                          size: 30,
+                        ),
                       )
                     ],
                   )

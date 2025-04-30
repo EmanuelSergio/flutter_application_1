@@ -1,4 +1,4 @@
-import 'package:App/widgets/messages_page.dart';
+import 'package:App/widgets/MealMenu.dart';
 import 'package:flutter/material.dart';
 
 class CustomMealmenu extends StatelessWidget {
@@ -29,7 +29,7 @@ class CustomMealmenu extends StatelessWidget {
                 ),
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => MessagesPage()));
+                      MaterialPageRoute(builder: (context) => MealMenu()));
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.min,

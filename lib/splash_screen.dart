@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class SplashScreen extends StatefulWidget {
+  @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
@@ -28,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         height: double.infinity,
         child: Column(

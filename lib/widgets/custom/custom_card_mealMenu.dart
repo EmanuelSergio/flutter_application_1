@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
-class CustomCardMealmenu extends StatelessWidget {
+class CustomCardMealmenu extends StatefulWidget {
   const CustomCardMealmenu({super.key});
+
+  @override
+  State<CustomCardMealmenu> createState() => _CustomCardMealmenuState();
+}
+
+class _CustomCardMealmenuState extends State<CustomCardMealmenu> {
+  int quantity = 2;
 
   @override
   Widget build(BuildContext context) {
@@ -71,13 +78,15 @@ class CustomCardMealmenu extends StatelessWidget {
                         color: Colors.redAccent,
                       ),
                       onPressed: () {
-                        // Adicione a ação desejada aqui
+                        setState(() {
+                          if (quantity > 0) quantity--;
+                        });
                       },
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 13),
-                    child: Text("2"),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 13),
+                    child: Text("$quantity"),
                   ),
                   Container(
                     width: 30,
@@ -94,7 +103,9 @@ class CustomCardMealmenu extends StatelessWidget {
                         color: Colors.white,
                       ),
                       onPressed: () {
-                        // Adicione a ação desejada aqui
+                        setState(() {
+                          quantity++;
+                        });
                       },
                     ),
                   ),
