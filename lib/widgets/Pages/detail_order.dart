@@ -1,25 +1,37 @@
+import 'package:App/Data/Models/item_model.dart';
 import 'package:App/widgets/Pages/food_detail_order.dart';
 import 'package:flutter/material.dart';
 
-class DetailOrder extends StatelessWidget {
+class DetailOrder extends StatefulWidget {
+  final Food food;
+  const DetailOrder({super.key, required this.food});
+
+  @override
+  State<DetailOrder> createState() => _DetailOrderState();
+}
+
+class _DetailOrderState extends State<DetailOrder> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      color: Colors.white,
-      child: Column(
-        children: [
-          Image.asset(
-            "assets/images/burgerDetail.png",
-            width: MediaQuery.of(context).size.width,
-            fit: BoxFit.cover,
-          ),
-          Column(
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return Container(
+          padding: EdgeInsets.only(top: 28),
+          width: MediaQuery.of(context).size.width,
+          color: Colors.white,
+          child: Column(
             children: [
-              Padding(
+              Image.network(
+                widget.food.imageUrl ?? "",
+                width: MediaQuery.of(context).size.width,
+                fit: BoxFit.cover,
+              ),
+              Expanded(
+                  child: Padding(
                 padding: const EdgeInsets.only(
                     top: 40, left: 20, right: 20, bottom: 20),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -44,7 +56,6 @@ class DetailOrder extends StatelessWidget {
                           ),
                         ),
                         Row(
-                          spacing: 7,
                           children: [
                             Container(
                               padding: const EdgeInsets.all(4.0),
@@ -55,6 +66,7 @@ class DetailOrder extends StatelessWidget {
                               child: Icon(Icons.location_on,
                                   color: Colors.redAccent),
                             ),
+                            SizedBox(width: 7),
                             Container(
                               padding: const EdgeInsets.all(4.0),
                               decoration: BoxDecoration(
@@ -72,7 +84,7 @@ class DetailOrder extends StatelessWidget {
                       children: [
                         Flexible(
                           child: Text(
-                            "Chicken Burger Promo Pack",
+                            widget.food.name ?? "",
                             style: Theme.of(context)
                                 .textTheme
                                 .headlineSmall
@@ -80,8 +92,7 @@ class DetailOrder extends StatelessWidget {
                                   fontSize: 32,
                                   fontWeight: FontWeight.w600,
                                 ),
-                            overflow:
-                                TextOverflow.clip, // or TextOverflow.ellipsis
+                            overflow: TextOverflow.clip,
                             softWrap: true,
                           ),
                         ),
@@ -98,7 +109,7 @@ class DetailOrder extends StatelessWidget {
                                 color: Colors.amber,
                               ),
                               Text(
-                                "4,8 Rating",
+                                "${widget.food.rating ?? ''} Rating",
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodySmall
@@ -114,7 +125,7 @@ class DetailOrder extends StatelessWidget {
                                 color: Colors.redAccent,
                               ),
                               Text(
-                                "7000+ Order",
+                                "${widget.food.ordersCount ?? '7000'}+ Order",
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodySmall
@@ -130,46 +141,99 @@ class DetailOrder extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "In a medium bowl, add ground chicken, breadcrumbs, mayonnaise, onions, parsley, garlic, paprika, salt and pepper. Use your hands to combine all the ingredients together until blended, but don't over mix.",
+                      widget.food.details ??
+                          "In a medium bowl, add ground chicken, breadcrumbs, mayonnaise, onions, parsley, garlic, paprika, salt and pepper. Use your hands to combine all the ingredients together until blended, but don't over mix.",
                       style: Theme.of(context)
                           .textTheme
                           .bodySmall
                           ?.copyWith(fontSize: 16),
                     ),
-                    SizedBox(height: 30),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width,
-                      height: 60,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(
-                                  builder: (_) => FoodDetailOrder()));
-                        },
-                        style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.fromLTRB(20, 2, 20, 5),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(3),
-                          ),
-                          backgroundColor: Colors.redAccent,
+                    Spacer(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              width: 30,
+                              height: 30,
+                              decoration: BoxDecoration(
+                                color: Colors.redAccent.withOpacity(0.2),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: IconButton(
+                                padding: EdgeInsets.zero,
+                                icon: const Icon(
+                                  Icons.remove,
+                                  size: 15,
+                                  color: Colors.redAccent,
+                                ),
+                                onPressed: () {},
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 10),
+                              child: Text(
+                                "0",
+                                style: TextStyle(
+                                    fontSize: 25, color: Colors.black),
+                              ),
+                            ),
+                            Container(
+                              width: 30,
+                              height: 30,
+                              decoration: BoxDecoration(
+                                color: Colors.redAccent,
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: IconButton(
+                                padding: EdgeInsets.zero,
+                                icon: const Icon(
+                                  Icons.add,
+                                  size: 15,
+                                  color: Colors.white,
+                                ),
+                                onPressed: () {},
+                              ),
+                            ),
+                          ],
                         ),
-                        child: const Text(
-                          'Add to Cart',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.6,
+                          height: 60,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                      builder: (_) => FoodDetailOrder()));
+                            },
+                            style: ElevatedButton.styleFrom(
+                              padding: EdgeInsets.fromLTRB(20, 2, 20, 5),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(3),
+                              ),
+                              backgroundColor: Colors.redAccent,
+                            ),
+                            child: const Text(
+                              'Add to Cart',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
                         ),
-                      ),
+                      ],
                     ),
                   ],
                 ),
-              )
+              ))
             ],
-          )
-        ],
-      ),
+          ),
+        );
+      },
     );
   }
 }

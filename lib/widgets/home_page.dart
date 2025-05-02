@@ -22,7 +22,23 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    foodList = apiService.fetchFood();
+    foodList = apiService.getAllFoods();
+  }
+
+  @override
+  void setState(VoidCallback fn) {
+    // TODO: implement setState
+    super.setState(fn);
+  }
+
+  void _filterFoods({int? categoryId}) {
+    setState(() {
+      if (categoryId != null) {
+        foodList = apiService.getFoodCategory(categoryId);
+      } else {
+        foodList = apiService.getAllFoods();
+      }
+    });
   }
 
   @override
@@ -46,43 +62,49 @@ class _HomePageState extends State<HomePage> {
                   CustomBurguerCard()
                 ],
               ),
-              Foodmenu(),
+              Foodmenu(onFilterSelected: _filterFoods),
               const SizedBox(
                 height: 20,
               ),
-              FutureBuilder<List<Food>>(
-                  future: foodList,
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const CircularProgressIndicator();
-                    } else if (snapshot.hasError) {
-                      return Text("Error: ${snapshot.error}");
-                    } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                      return const Text("No data available");
-                    } else {
-                      final items = snapshot.data!;
-                      return CustomCarousel(
-                        gap: 20,
-                        height: 207,
-                        showMultipleItems: true,
-                        navigationDots: false,
-                        cards: items.map((item) {
-                          return CustomFoodCard(
-                            title: item.name,
-                            description: item.description,
-                            imagePath: item.imageUrl,
-                            rating: item.rating,
-                            price: item.value,
-                          );
-                        }).toList(),
-                      );
-                    }
-                  }),
+              buildCards(),
               CustomMealmenu()
             ],
           ),
         ),
       ),
+    );
+  }
+
+  FutureBuilder<List<Food>> buildCards() {
+    return FutureBuilder<List<Food>>(
+      future: foodList,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const CircularProgressIndicator();
+        } else if (snapshot.hasError) {
+          return Text("Error: ${snapshot.error}");
+        } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+          return const Text("No data available");
+        } else {
+          final items = snapshot.data!;
+          return CustomCarousel(
+            gap: 20,
+            height: 207,
+            showMultipleItems: true,
+            navigationDots: false,
+            cards: items.map((item) {
+              return CustomFoodCard(
+                id: item.id,
+                title: item.name,
+                description: item.description,
+                imagePath: item.imageUrl,
+                rating: item.rating,
+                price: item.value,
+              );
+            }).toList(),
+          );
+        }
+      },
     );
   }
 }

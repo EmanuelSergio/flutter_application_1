@@ -1,8 +1,11 @@
+import 'package:App/Data/Models/item_model.dart';
+import 'package:App/Data/Services/api_service.dart';
 import 'package:App/widgets/Pages/detail_order.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CustomFoodCard extends StatelessWidget {
+class CustomFoodCard extends StatefulWidget {
+  final int id;
   final String title;
   final String description;
   final String imagePath;
@@ -18,9 +21,26 @@ class CustomFoodCard extends StatelessWidget {
     required this.imagePath,
     required this.rating,
     required this.price,
+    required this.id,
     //required this.priceCents,
     this.onAddPressed,
   }) : super(key: key);
+
+  @override
+  State<CustomFoodCard> createState() => _CustomFoodCardState();
+}
+
+class _CustomFoodCardState extends State<CustomFoodCard> {
+  final ApiService apiService = ApiService();
+  late Future<Food> food;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    food = ApiService().getFoodById(widget.id);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +52,14 @@ class CustomFoodCard extends StatelessWidget {
           focusColor: Colors.transparent,
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
-          onTap: () {
+          onTap: () async {
+            final FoodDetails = await apiService.getFoodById(widget.id);
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DetailOrder(),
+                  builder: (context) => DetailOrder(
+                    food: FoodDetails,
+                  ),
                 ));
           },
           child: Card(
@@ -58,7 +81,7 @@ class CustomFoodCard extends StatelessWidget {
                         color: CupertinoColors.systemYellow,
                       ),
                       Text(
-                        rating.toString(),
+                        widget.rating.toString(),
                         style:
                             Theme.of(context).textTheme.headlineLarge?.copyWith(
                                   fontSize: 15,
@@ -71,7 +94,7 @@ class CustomFoodCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.network(
-                        imagePath,
+                        widget.imagePath,
                         width: 87,
                         height: 70,
                       ),
@@ -82,16 +105,18 @@ class CustomFoodCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        title,
+                        widget.title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
                             ),
                       ),
                       Text(
-                        description.length > 45
-                            ? '${description.substring(0, 40)}...'
-                            : description,
+                        widget.description,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
                             color: Colors.black38,
                             fontWeight: FontWeight.w900,
@@ -104,7 +129,7 @@ class CustomFoodCard extends StatelessWidget {
                     children: [
                       RichText(
                         text: TextSpan(
-                          text: "\$${price.toStringAsFixed(0)}.",
+                          text: "\$${widget.price.toStringAsFixed(0)}.",
                           style: Theme.of(context)
                               .textTheme
                               .bodySmall
@@ -127,7 +152,7 @@ class CustomFoodCard extends StatelessWidget {
                         ),
                       ),
                       IconButton(
-                        onPressed: onAddPressed,
+                        onPressed: widget.onAddPressed,
                         icon: Icon(
                           Icons.add_circle_outlined,
                           color: Colors.redAccent,

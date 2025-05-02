@@ -2,6 +2,9 @@ import 'package:App/widgets/custom/custom_list_card.dart';
 import 'package:flutter/material.dart';
 
 class Foodmenu extends StatefulWidget {
+  final Function({int? categoryId}) onFilterSelected;
+  const Foodmenu({super.key, required this.onFilterSelected});
+
   @override
   State<Foodmenu> createState() => _FoodmenuState();
 }
@@ -13,19 +16,21 @@ class _FoodmenuState extends State<Foodmenu>
   final List<String> categories = [
     'All',
     'Pizza',
-    'Burger',
     'Pasta',
-    'Salad',
-    'Dessert',
+    'Salada',
+    'Sushi',
+    'Coxinhas',
+    'Outros',
   ];
 
   final List<IconData> icons = [
     Icons.fastfood,
     Icons.local_pizza,
-    Icons.hail,
-    Icons.access_time_filled_rounded,
+    Icons.ramen_dining,
+    Icons.eco,
     Icons.local_dining,
-    Icons.cake,
+    Icons.local_dining,
+    Icons.fastfood,
   ];
 
   @override
@@ -63,6 +68,8 @@ class _FoodmenuState extends State<Foodmenu>
                       onTap: () {
                         setState(() {
                           _selectedIndex = index;
+                          widget.onFilterSelected(
+                              categoryId: index == 0 ? null : index);
                           _tabController.index = index;
                         });
                       },

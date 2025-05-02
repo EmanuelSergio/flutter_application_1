@@ -5,6 +5,9 @@ class Food {
   final String description;
   final double value;
   final String imageUrl;
+  final int categoryId;
+  final int ordersCount;
+  final String details;
 
   Food({
     required this.id,
@@ -13,6 +16,9 @@ class Food {
     required this.description,
     required this.value,
     required this.imageUrl,
+    this.categoryId = 0,
+    required this.ordersCount,
+    required this.details,
   });
 
   factory Food.fromJson(Map<String, dynamic> json) {
@@ -23,6 +29,9 @@ class Food {
       description: json['description'] as String,
       value: (json['value'] as num).toDouble(),
       imageUrl: json['imageUrl'] as String,
+      categoryId: json['categoryId'] as int? ?? 0,
+      ordersCount: json['ordersCount'] as int,
+      details: json['details'] as String? ?? '', // Added details field
     );
   }
 
@@ -34,6 +43,9 @@ class Food {
       'description': description,
       'value': value,
       'imageUrl': imageUrl,
+      'categoryId': categoryId,
+      'ordersCount': ordersCount,
+      'details': details, // Added details field
     };
   }
 }
