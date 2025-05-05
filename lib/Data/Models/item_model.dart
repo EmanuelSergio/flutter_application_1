@@ -1,5 +1,5 @@
 class Food {
-  final int id;
+  final String id;
   final String name;
   final double rating;
   final String description;
@@ -23,7 +23,7 @@ class Food {
 
   factory Food.fromJson(Map<String, dynamic> json) {
     return Food(
-      id: json['id'] as int,
+      id: json['id'] as String,
       name: json['name'] as String,
       rating: (json['rating'] as num).toDouble(),
       description: json['description'] as String,

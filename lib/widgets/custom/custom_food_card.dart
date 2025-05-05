@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomFoodCard extends StatefulWidget {
-  final int id;
+  final String id;
   final String title;
   final String description;
   final String imagePath;
@@ -152,7 +152,18 @@ class _CustomFoodCardState extends State<CustomFoodCard> {
                         ),
                       ),
                       IconButton(
-                        onPressed: widget.onAddPressed,
+                        onPressed: () {
+                          apiService.addToCart(widget.id, 1);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              backgroundColor: Colors.green,
+                              content: Text(
+                                'Pedido adicionado com sucesso!',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                          );
+                        },
                         icon: Icon(
                           Icons.add_circle_outlined,
                           color: Colors.redAccent,

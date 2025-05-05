@@ -1,14 +1,31 @@
 import 'package:flutter/material.dart';
 
 class CustomCardMealmenu extends StatefulWidget {
-  const CustomCardMealmenu({super.key});
+  final String title;
+  final String image;
+  final double price;
+  final int initialQuantity;
+
+  const CustomCardMealmenu({
+    super.key,
+    required this.title,
+    required this.image,
+    required this.price,
+    required this.initialQuantity,
+  });
 
   @override
   State<CustomCardMealmenu> createState() => _CustomCardMealmenuState();
 }
 
 class _CustomCardMealmenuState extends State<CustomCardMealmenu> {
-  int quantity = 2;
+  late int quantity;
+
+  @override
+  void initState() {
+    super.initState();
+    quantity = widget.initialQuantity;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +36,8 @@ class _CustomCardMealmenuState extends State<CustomCardMealmenu> {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset(
-                "assets/images/pizza.png",
+              Image.network(
+                widget.image,
                 fit: BoxFit.cover,
                 width: 60,
                 height: 60,
@@ -31,7 +48,7 @@ class _CustomCardMealmenuState extends State<CustomCardMealmenu> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Pepper Pizza',
+                      widget.title,
                       style:
                           Theme.of(context).textTheme.headlineLarge?.copyWith(
                                 fontSize: 17,
@@ -39,7 +56,7 @@ class _CustomCardMealmenuState extends State<CustomCardMealmenu> {
                               ),
                     ),
                     Text(
-                      "5kg box of Pizza",
+                      "5kg box of ${widget.title}",
                       style: Theme.of(context)
                           .textTheme
                           .headlineSmall
@@ -49,7 +66,7 @@ class _CustomCardMealmenuState extends State<CustomCardMealmenu> {
                               color: Colors.black26),
                     ),
                     Text(
-                      '\$15',
+                      '\$${widget.price.toStringAsFixed(2)}',
                       style: Theme.of(context)
                           .textTheme
                           .headlineLarge

@@ -2,6 +2,19 @@ import 'package:App/widgets/Pages/finish_order.dart';
 import 'package:flutter/material.dart';
 
 class CustomTotalAccount extends StatelessWidget {
+  final double subtotal;
+  final double deliveryFee;
+  final double discount;
+  final double total;
+
+  const CustomTotalAccount({
+    super.key,
+    required this.subtotal,
+    required this.deliveryFee,
+    required this.discount,
+    required this.total,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,15 +39,24 @@ class CustomTotalAccount extends StatelessWidget {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [Text("Sub-Total"), Text("100\$")],
+                children: [
+                  Text("Sub-Total"),
+                  Text("\$${subtotal.toStringAsFixed(2)}")
+                ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [Text("Delivery Charge"), Text("10\$")],
+                children: [
+                  Text("Delivery Charge"),
+                  Text("\$${deliveryFee.toStringAsFixed(2)}")
+                ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [Text("Discount"), Text("10\$")],
+                children: [
+                  Text("Discount"),
+                  Text("\$${discount.toStringAsFixed(2)}")
+                ],
               ),
               SizedBox(
                 height: 20,
@@ -44,8 +66,8 @@ class CustomTotalAccount extends StatelessWidget {
                 children: [
                   Text("Total", style: TextStyle(fontWeight: FontWeight.w900)),
                   Text(
-                    "110\$",
-                    style: TextStyle(fontWeight: FontWeight.w900),
+                    "\$${total.toStringAsFixed(2)}",
+                    style: const TextStyle(fontWeight: FontWeight.w900),
                   ),
                 ],
               ),

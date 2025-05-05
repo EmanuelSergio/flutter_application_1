@@ -1,0 +1,352 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "name": "Pizza"
+    },
+    {
+      "id": "2",
+      "name": "Pasta"
+    },
+    {
+      "id": "3",
+      "name": "Salad"
+    },
+    {
+      "id": "4",
+      "name": "Sushi"
+    },
+    {
+      "id": "5",
+      "name": "Coxinha"
+    },
+    {
+      "id": "6",
+      "name": "Outros"
+    },
+    {
+      "id": "7",
+      "name": "Populares"
+    }
+  ],
+  "foods": [
+    {
+      "id": "1",
+      "categoryId": 1,
+      "rating": 4.5,
+      "name": "Pizza Margherita",
+      "description": "A delicious cheese pizza with fresh basil",
+      "value": 10.99,
+      "imageUrl": "https://i.ytimg.com/vi/JEPtJvykQkI/hq720.jpg",
+      "details": "Feita com molho de tomate artesanal, mozzarella de bufala e folhas frescas de manjericao. Uma opcao classica italiana preparada em forno a lenha.",
+      "ordersCount": 145
+    },
+    {
+      "id": "2",
+      "categoryId": 1,
+      "rating": 4.7,
+      "name": "Pizza Pepperoni",
+      "description": "A classic pepperoni pizza with extra cheese",
+      "value": 12.99,
+      "imageUrl": "https://i.ytimg.com/vi/JEPtJvykQkI/hq720.jpg",
+      "details": "Generosas fatias de pepperoni, queijo derretido e massa crocante, assadas ate dourar. Perfeita para quem gosta de sabor marcante.",
+      "ordersCount": 189
+    },
+    {
+      "id": "3",
+      "categoryId": 2,
+      "rating": 4.8,
+      "name": "Pasta Alfredo",
+      "description": "Creamy Alfredo pasta with parmesan cheese",
+      "value": 13.99,
+      "imageUrl": "https://www.academiaassai.com.br/sites/default/files/styles/noticia_1020x640/public/dicas-de-como-fazer-a-massa-perfeita-macarrao-penne.jpg",
+      "details": "Massa al dente servida com um cremoso molho Alfredo, queijo parmesao fresco e uma pitada de noz-moscada.",
+      "ordersCount": 213
+    },
+    {
+      "id": "4",
+      "categoryId": 2,
+      "rating": 4.6,
+      "name": "Pasta Carbonara",
+      "description": "Traditional pasta with bacon and creamy sauce",
+      "value": 14.99,
+      "imageUrl": "https://www.academiaassai.com.br/sites/default/files/styles/noticia_1020x640/public/dicas-de-como-fazer-a-massa-perfeita-macarrao-penne.jpg",
+      "details": "Classica receita italiana feita com ovos, queijo, pancetta e pimenta-do-reino, sem creme de leite.",
+      "ordersCount": 172
+    },
+    {
+      "id": "5",
+      "categoryId": 3,
+      "rating": 4.2,
+      "name": "Caesar Salad",
+      "description": "Fresh salad with Caesar dressing and croutons",
+      "value": 8.99,
+      "imageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2021/04/green-salad-500x500.jpg",
+      "details": "Alface romana fresca, croutons crocantes, molho Caesar caseiro e lascas de parmesao.",
+      "ordersCount": 98
+    },
+    {
+      "id": "6",
+      "categoryId": 3,
+      "rating": 4.3,
+      "name": "Greek Salad",
+      "description": "Salad with feta cheese, olives, and fresh vegetables",
+      "value": 9.99,
+      "imageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2021/04/green-salad-500x500.jpg",
+      "details": "Tomate, pepino, cebola roxa, azeitonas e queijo feta temperados com azeite e oregano.",
+      "ordersCount": 110
+    },
+    {
+      "id": "7",
+      "categoryId": 4,
+      "rating": 4.6,
+      "name": "Sushi Rolls",
+      "description": "Assorted sushi rolls with soy sauce",
+      "value": 15.99,
+      "imageUrl": "https://www.sabornamesa.com.br/media/k2/items/cache/111f98f6130992942a4edb8b01d8011a_XL.jpg",
+      "details": "Variedade de sushis enrolados com peixe fresco, arroz temperado e alga nori, servidos com molho shoyu.",
+      "ordersCount": 132
+    },
+    {
+      "id": "8",
+      "categoryId": 4,
+      "rating": 4.8,
+      "name": "Sushi Deluxe",
+      "description": "Premium sushi rolls with fresh fish and avocado",
+      "value": 18.99,
+      "imageUrl": "https://www.sabornamesa.com.br/media/k2/items/cache/111f98f6130992942a4edb8b01d8011a_XL.jpg",
+      "details": "Sushis premium preparados com salmao, atum, abacate e cream cheese, acompanhados de gengibre e wasabi.",
+      "ordersCount": 176
+    },
+    {
+      "id": "9",
+      "categoryId": 5,
+      "rating": 4.7,
+      "name": "Coxinha de Frango",
+      "description": "Traditional chicken-filled coxinha with crispy crust",
+      "value": 4.99,
+      "imageUrl": "https://institucional.ifood.com.br/wp-content/uploads/2024/07/comidas-tipicas-coxinha.jpg",
+      "details": "Massa leve recheada com frango temperado e cremosa catupiry, empanada e frita ate a crocancia perfeita.",
+      "ordersCount": 245
+    },
+    {
+      "id": "10",
+      "categoryId": 5,
+      "rating": 4.8,
+      "name": "Coxinha de Queijo",
+      "description": "Coxinha filled with creamy cheese",
+      "value": 5.99,
+      "imageUrl": "https://institucional.ifood.com.br/wp-content/uploads/2024/07/comidas-tipicas-coxinha.jpg",
+      "details": "Versao vegetariana recheada com queijo cremoso e temperos leves, ideal para lanches rapidos.",
+      "ordersCount": 201
+    },
+    {
+      "id": "11",
+      "categoryId": 6,
+      "rating": 4.9,
+      "name": "Moqueca Maranhense",
+      "description": "Moqueca de peixe com temperos tipicos do Maranhao",
+      "value": 19.99,
+      "imageUrl": "https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2023/01/comidas-da-regiao-do-nordeste-moqueca-maranhense.jpg?w=750",
+      "details": "Peixe cozido com leite de coco, azeite de dende, pimentoes e coentro. Uma explosao de sabores regionais.",
+      "ordersCount": 88
+    },
+    {
+      "id": "12",
+      "categoryId": 6,
+      "rating": 4.3,
+      "name": "Batata Frita",
+      "description": "Batatas fritas crocantes e douradas",
+      "value": 5.99,
+      "imageUrl": "https://topview.com.br/wp-content/uploads/2015/02/batata-frita-abre-e1529084942846.jpg",
+      "details": "Cortadas na hora, fritas ate ficarem crocantes por fora e macias por dentro. Acompanhamento perfeito.",
+      "ordersCount": 299
+    },
+    {
+      "id": "13",
+      "categoryId": 6,
+      "rating": 4.6,
+      "name": "Comida Sertaneja",
+      "description": "Prato tipico da culinaria sertaneja",
+      "value": 14.99,
+      "imageUrl": "https://www.gastronomia.com.br/wp-content/uploads/2023/07/a-singular-comida-sertaneja.jpg",
+      "details": "Feijao tropeiro, arroz, carne de sol acebolada e mandioca frita. Um prato forte e cheio de tradicao.",
+      "ordersCount": 133
+    },
+    {
+      "id": "14",
+      "categoryId": 6,
+      "rating": 4.8,
+      "name": "Mac and Cheese",
+      "description": "Macarrao com queijo cremoso, tipico dos EUA",
+      "value": 9.99,
+      "imageUrl": "https://www.buenasdicas.com/wp-content/uploads/2020/01/comidas-tipicas-eua-macncheese.jpg",
+      "details": "Massa envolta em molho de queijo cheddar, gratinada no forno com cobertura crocante.",
+      "ordersCount": 156
+    },
+    {
+      "id": "15",
+      "categoryId": 7,
+      "rating": 4.3,
+      "name": "Batata Frita",
+      "description": "Batatas fritas crocantes e douradas",
+      "value": 5.99,
+      "imageUrl": "https://topview.com.br/wp-content/uploads/2015/02/batata-frita-abre-e1529084942846.jpg",
+      "details": "Cortadas na hora, fritas ate ficarem crocantes por fora e macias por dentro. Acompanhamento perfeito.",
+      "ordersCount": 299
+    },
+    {
+      "id": "16",
+      "categoryId": 7,
+      "rating": 4.7,
+      "name": "Coxinha de Frango",
+      "description": "Traditional chicken-filled coxinha with crispy crust",
+      "value": 4.99,
+      "imageUrl": "https://institucional.ifood.com.br/wp-content/uploads/2024/07/comidas-tipicas-coxinha.jpg",
+      "details": "Massa leve recheada com frango temperado e cremosa catupiry, empanada e frita ate a crocancia perfeita.",
+      "ordersCount": 245
+    },
+    {
+      "id": "17",
+      "categoryId": 7,
+      "rating": 4.8,
+      "name": "Pasta Alfredo",
+      "description": "Creamy Alfredo pasta with parmesan cheese",
+      "value": 13.99,
+      "imageUrl": "https://www.academiaassai.com.br/sites/default/files/styles/noticia_1020x640/public/dicas-de-como-fazer-a-massa-perfeita-macarrao-penne.jpg",
+      "details": "Massa al dente servida com um cremoso molho Alfredo, queijo parmesao fresco e uma pitada de noz-moscada.",
+      "ordersCount": 213
+    },
+    {
+      "id": "18",
+      "categoryId": 7,
+      "rating": 4.8,
+      "name": "Coxinha de Queijo",
+      "description": "Coxinha filled with creamy cheese",
+      "value": 5.99,
+      "imageUrl": "https://institucional.ifood.com.br/wp-content/uploads/2024/07/comidas-tipicas-coxinha.jpg",
+      "details": "Versao vegetariana recheada com queijo cremoso e temperos leves, ideal para lanches rapidos.",
+      "ordersCount": 201
+    },
+    {
+      "id": "19",
+      "categoryId": 7,
+      "rating": 4.7,
+      "name": "Pizza Pepperoni",
+      "description": "A classic pepperoni pizza with extra cheese",
+      "value": 12.99,
+      "imageUrl": "https://i.ytimg.com/vi/JEPtJvykQkI/hq720.jpg",
+      "details": "Generosas fatias de pepperoni, queijo derretido e massa crocante, assadas ate dourar. Perfeita para quem gosta de sabor marcante.",
+      "ordersCount": 189
+    },
+    {
+      "id": "20",
+      "categoryId": 7,
+      "rating": 4.8,
+      "name": "Sushi Deluxe",
+      "description": "Premium sushi rolls with fresh fish and avocado",
+      "value": 18.99,
+      "imageUrl": "https://www.sabornamesa.com.br/media/k2/items/cache/111f98f6130992942a4edb8b01d8011a_XL.jpg",
+      "details": "Sushis premium preparados com salmao, atum, abacate e cream cheese, acompanhados de gengibre e wasabi.",
+      "ordersCount": 176
+    }
+  ],
+  "carrinho": [
+    {
+      "foodId": 1,
+      "quantity": 2,
+      "id": "d9df"
+    },
+    {
+      "id": "8354",
+      "foodId": "1",
+      "quantity": 1
+    },
+    {
+      "id": "13fb",
+      "foodId": "2",
+      "quantity": 1
+    },
+    {
+      "id": "fab8",
+      "foodId": "7",
+      "quantity": 1
+    },
+    {
+      "id": "49ac",
+      "foodId": "11",
+      "quantity": 1
+    },
+    {
+      "id": "2b6e",
+      "foodId": "1",
+      "quantity": 1
+    },
+    {
+      "id": "18b4",
+      "foodId": "1",
+      "quantity": 1
+    },
+    {
+      "id": "53fb",
+      "foodId": "16",
+      "quantity": 1
+    },
+    {
+      "id": "e809",
+      "foodId": "15",
+      "quantity": 1
+    },
+    {
+      "id": "048d",
+      "foodId": "17",
+      "quantity": 1
+    },
+    {
+      "id": "0472",
+      "foodId": "2",
+      "quantity": 1
+    },
+    {
+      "id": "7aad",
+      "foodId": "1",
+      "quantity": 1
+    },
+    {
+      "id": "496f",
+      "foodId": "1",
+      "quantity": 1
+    },
+    {
+      "id": "b0ed",
+      "foodId": "2",
+      "quantity": 1
+    },
+    {
+      "id": "ed31",
+      "foodId": "1",
+      "quantity": 1
+    },
+    {
+      "id": "3f76",
+      "foodId": "1",
+      "quantity": 1
+    }
+  ],
+  "pedidosFeitos": [
+    {
+      "id": "1",
+      "foodId": 1,
+      "quantity": 2,
+      "status": "Entregue",
+      "date": "2023-10-01T12:00:00Z"
+    },
+    {
+      "id": "2",
+      "foodId": 2,
+      "quantity": 1,
+      "status": "Em andamento",
+      "date": "2023-10-02T14:30:00Z"
+    }
+  ]
+}

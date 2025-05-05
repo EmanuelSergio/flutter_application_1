@@ -1,4 +1,5 @@
 import 'package:App/Data/Models/item_model.dart';
+import 'package:App/Data/Services/api_service.dart';
 import 'package:App/widgets/Pages/food_detail_order.dart';
 import 'package:flutter/material.dart';
 
@@ -11,9 +12,12 @@ class DetailOrder extends StatefulWidget {
 }
 
 class _DetailOrderState extends State<DetailOrder> {
+  final ApiService apiService = ApiService();
+  int quantity = 0;
+
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
+    return Scaffold(body: LayoutBuilder(
       builder: (context, constraints) {
         return Container(
           padding: EdgeInsets.only(top: 28),
@@ -168,14 +172,20 @@ class _DetailOrderState extends State<DetailOrder> {
                                   size: 15,
                                   color: Colors.redAccent,
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  setState(() {
+                                    if (quantity > 0) {
+                                      quantity--;
+                                    }
+                                  });
+                                },
                               ),
                             ),
                             Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 10),
                               child: Text(
-                                "0",
+                                "$quantity",
                                 style: TextStyle(
                                     fontSize: 25, color: Colors.black),
                               ),
@@ -194,7 +204,11 @@ class _DetailOrderState extends State<DetailOrder> {
                                   size: 15,
                                   color: Colors.white,
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  setState(() {
+                                    quantity++;
+                                  });
+                                },
                               ),
                             ),
                           ],
@@ -204,6 +218,19 @@ class _DetailOrderState extends State<DetailOrder> {
                           height: 60,
                           child: ElevatedButton(
                             onPressed: () {
+                              if (quantity == 0) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    backgroundColor: Colors.redAccent,
+                                    content: Text(
+                                      'Please select a quantity',
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ),
+                                );
+                                return;
+                              }
+                              apiService.addToCart(widget.food.id, quantity);
                               Navigator.of(context).pushReplacement(
                                   MaterialPageRoute(
                                       builder: (_) => FoodDetailOrder()));
@@ -234,6 +261,6 @@ class _DetailOrderState extends State<DetailOrder> {
           ),
         );
       },
-    );
+    ));
   }
 }
