@@ -5,8 +5,9 @@ import 'package:http/http.dart' as http;
 import 'package:App/Data/Models/item_model.dart';
 
 class ApiService {
-  //static const String baseUrl = "http://10.0.2.2:3000";
-  static const String baseUrl = "http://172.20.203.241:3000";
+  // static const String baseUrl = "http://10.0.2.2:3000";
+  // static const String baseUrl = "http://172.20.203.241:3000";
+  static const String baseUrl = "http://192.168.2.10:3000";
 
   Future<List<Food>> getAllFoods() async {
     final response = await http.get(Uri.parse('$baseUrl/foods'));
