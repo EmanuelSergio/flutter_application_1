@@ -108,7 +108,7 @@ A aplicação utiliza uma **API simulada (mock)** com endpoints para:
 
 1. Clone o repositório:
 ```bash
-git clone <url-do-repositorio>
+git clone https://github.com/EmanuelSergio/flutter_application_1.git
 cd flutter_application_1
 ```
 
@@ -159,4 +159,4 @@ Este projeto foi desenvolvido com foco em aprendizado e aplicação de boas prá
 
 Sinta-se à vontade para entrar em contato!
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Perfil-blue?logo=linkedin)](https://www.linkedin.com/in/seu-usuario)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Perfil-blue?logo=linkedin)](https://www.linkedin.com/in/emanuel-girardi-99320421a/)
